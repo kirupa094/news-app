@@ -55,7 +55,11 @@ class _CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
         fillColor: loginWidgetColor,
         hintText: widget.hintText,
         hintStyle: const TextStyle(
-            color: labelTextColor, fontSize: 14, fontWeight: FontWeight.w400),
+          color: labelTextColor,
+          fontSize: 14,
+          fontWeight: FontWeight.w400,
+          fontFamily: 'nunito',
+        ),
         focusedBorder: OutlineInputBorder(
           borderSide: const BorderSide(color: textFieldBorderColor),
           borderRadius: BorderRadius.circular(50),

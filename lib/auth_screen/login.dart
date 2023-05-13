@@ -97,7 +97,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           text: 'New user?',
                           fontWeight: FontWeight.w400,
                           fontSize: 14,
-                          fontFamily: '',
+                          fontFamily: 'nunito',
                           color: Colors.black,
                         ),
                         SizedBox(
@@ -107,7 +107,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           text: 'Register',
                           fontWeight: FontWeight.w600,
                           fontSize: 16,
-                          fontFamily: '',
+                          fontFamily: 'nunito',
                           color: secondaryColor,
                         ),
                       ],
