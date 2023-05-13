@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/auth_screen/register.dart';
 import 'package:news_app/custom_widget/custom_button.dart';
 import 'package:news_app/custom_widget/custom_text.dart';
 import 'package:news_app/custom_widget/custom_textfield.dart';
@@ -92,23 +93,34 @@ class _LoginScreenState extends State<LoginScreen> {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        CustomText(
+                      children: [
+                        const CustomText(
                           text: 'New user?',
                           fontWeight: FontWeight.w400,
                           fontSize: 14,
                           fontFamily: 'nunito',
                           color: Colors.black,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 5,
                         ),
-                        CustomText(
-                          text: 'Register',
-                          fontWeight: FontWeight.w600,
-                          fontSize: 16,
-                          fontFamily: 'nunito',
-                          color: secondaryColor,
+                        InkWell(
+                          onTap: () {
+                            _form.currentState?.reset();
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const RegisterScreen(),
+                              ),
+                            );
+                          },
+                          child: const CustomText(
+                            text: 'Register',
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
+                            fontFamily: 'nunito',
+                            color: secondaryColor,
+                          ),
                         ),
                       ],
                     )
