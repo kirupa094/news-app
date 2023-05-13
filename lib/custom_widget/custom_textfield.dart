@@ -4,7 +4,6 @@ import 'package:news_app/util/constant.dart';
 class CustomTextFieldWidget extends StatefulWidget {
   final String hintText;
   final Function(String) onChanged;
-  final String? errorMsg;
   final String? Function(String?) validator;
   final TextAlign textAlign;
   final bool isPassword;
@@ -12,7 +11,6 @@ class CustomTextFieldWidget extends StatefulWidget {
     Key? key,
     required this.hintText,
     required this.onChanged,
-    required this.errorMsg,
     required this.validator,
     required this.textAlign,
     required this.isPassword,
@@ -23,7 +21,7 @@ class CustomTextFieldWidget extends StatefulWidget {
 }
 
 class _CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
-  bool obscureText = false;
+  bool obscureText = true;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -34,13 +32,12 @@ class _CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
       textAlign: widget.textAlign,
       decoration: InputDecoration(
         errorMaxLines: 3,
-        errorText: widget.errorMsg,
         errorStyle: const TextStyle(fontSize: 12, height: 1),
         contentPadding: const EdgeInsets.symmetric(
           vertical: 12,
           horizontal: 14,
         ),
-        suffixIconColor: const Color.fromARGB(255, 118, 118, 118),
+        suffixIconColor: visibilityIconColor,
         suffixIcon: widget.isPassword
             ? IconButton(
                 onPressed: () {
@@ -49,13 +46,13 @@ class _CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
                   });
                 },
                 icon: Icon(
-                  color: const Color.fromARGB(255, 118, 118, 118),
+                  color: visibilityIconColor,
                   obscureText ? Icons.visibility_off : Icons.visibility,
                 ),
               )
             : null,
         filled: true,
-        fillColor: const Color.fromARGB(255, 241, 246, 246),
+        fillColor: loginWidgetColor,
         hintText: widget.hintText,
         hintStyle: const TextStyle(
             color: labelTextColor, fontSize: 14, fontWeight: FontWeight.w400),

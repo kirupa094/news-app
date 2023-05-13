@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/auth_screen/login.dart';
 import 'package:news_app/route_screen.dart';
 
 class App extends StatelessWidget {
@@ -9,7 +10,7 @@ class App extends StatelessWidget {
     return const MaterialApp(
       title: 'News App',
       debugShowCheckedModeBanner: false,
-      home: RouterScreen(),
+      home: LoginScreen(),
     );
   }
 }
