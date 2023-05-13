@@ -12,7 +12,7 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: tertiary ,
+        color: secondaryColor,
         borderRadius: BorderRadius.circular(50),
       ),
       child: TextButton(
