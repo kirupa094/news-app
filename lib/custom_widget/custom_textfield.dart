@@ -3,17 +3,19 @@ import 'package:news_app/util/constant.dart';
 
 class CustomTextFieldWidget extends StatefulWidget {
   final String hintText;
+  bool obscureText;
   final Function(String) onChanged;
   final String? Function(String?) validator;
   final TextAlign textAlign;
   final bool isPassword;
-  const CustomTextFieldWidget({
+  CustomTextFieldWidget({
     Key? key,
     required this.hintText,
     required this.onChanged,
     required this.validator,
     required this.textAlign,
     required this.isPassword,
+    this.obscureText = false,
   }) : super(key: key);
 
   @override
@@ -21,14 +23,13 @@ class CustomTextFieldWidget extends StatefulWidget {
 }
 
 class _CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
-  bool obscureText = true;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       validator: widget.validator,
       onChanged: widget.onChanged,
       cursorColor: labelTextColor,
-      obscureText: obscureText,
+      obscureText: widget.obscureText,
       textAlign: widget.textAlign,
       decoration: InputDecoration(
         errorMaxLines: 3,
@@ -42,12 +43,12 @@ class _CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
             ? IconButton(
                 onPressed: () {
                   setState(() {
-                    obscureText = !obscureText;
+                    widget.obscureText = !widget.obscureText;
                   });
                 },
                 icon: Icon(
                   color: visibilityIconColor,
-                  obscureText ? Icons.visibility_off : Icons.visibility,
+                  widget.obscureText ? Icons.visibility_off : Icons.visibility,
                 ),
               )
             : null,

@@ -4,6 +4,7 @@ import 'package:news_app/custom_widget/custom_button.dart';
 import 'package:news_app/custom_widget/custom_text.dart';
 import 'package:news_app/custom_widget/custom_textfield.dart';
 import 'package:news_app/util/constant.dart';
+import 'package:news_app/util/custom_function.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -59,7 +60,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       isPassword: false,
                       textAlign: TextAlign.left,
                       hintText: 'Email',
-                      validator: (value) {},
+                      validator: (value) {
+                        if (!CustomFunction.isEmpty(value!)) {
+                          return 'Please Enter Email';
+                        } else if (!CustomFunction.isValidEmail(value)) {
+                          return 'Email format is invalid';
+                        }
+                        return null;
+                      },
                       onChanged: (text) {
                         setState(() {
                           email = text;
@@ -70,10 +78,16 @@ class _LoginScreenState extends State<LoginScreen> {
                       height: 20,
                     ),
                     CustomTextFieldWidget(
+                      obscureText: true,
                       isPassword: true,
                       textAlign: TextAlign.left,
                       hintText: 'Password',
-                      validator: (value) {},
+                      validator: (value) {
+                        if (!CustomFunction.isEmpty(value!)) {
+                          return 'Please Enter Password';
+                        }
+                        return null;
+                      },
                       onChanged: (text) {
                         setState(() {
                           password = text;
@@ -85,7 +99,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     CustomButton(
                       title: 'Login',
-                      onPressedCallBack: () => {},
+                      onPressedCallBack: () =>
+                          {if (_form.currentState!.validate()) {}},
                     ),
                     const SizedBox(
                       height: 20,
