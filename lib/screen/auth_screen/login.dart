@@ -1,10 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import 'package:news_app/auth_screen/register.dart';
 import 'package:news_app/custom_widget/custom_button.dart';
 import 'package:news_app/custom_widget/custom_text.dart';
 import 'package:news_app/custom_widget/custom_textfield.dart';
+import 'package:news_app/screen/auth_screen/register.dart';
 import 'package:news_app/util/constant.dart';
 import 'package:news_app/util/custom_function.dart';
 
@@ -129,8 +129,9 @@ class _LoginScreenState extends State<LoginScreen> {
                               final user =
                                   await _auth.signInWithEmailAndPassword(
                                       email: email, password: password);
-                              if (user.additionalUserInfo!.username != '') {
-                                print('object>>>');
+                              if (user.user != null) {
+                                final token = await user.user!.getIdToken();
+                                
                               }
                             } catch (e) {
                               setState(() {

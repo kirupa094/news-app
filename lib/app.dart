@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/auth_screen/login.dart';
 import 'package:news_app/route_screen.dart';
+import 'package:news_app/screen/auth_screen/login.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
