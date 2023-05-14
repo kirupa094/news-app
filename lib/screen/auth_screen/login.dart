@@ -7,6 +7,7 @@ import 'package:news_app/custom_widget/custom_textfield.dart';
 import 'package:news_app/screen/auth_screen/register.dart';
 import 'package:news_app/util/constant.dart';
 import 'package:news_app/util/custom_function.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -131,7 +132,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                       email: email, password: password);
                               if (user.user != null) {
                                 final token = await user.user!.getIdToken();
-                                
+                                SharedPreferences prefs =
+                                    await SharedPreferences.getInstance();
+                                prefs.setString("token", token);
                               }
                             } catch (e) {
                               setState(() {
