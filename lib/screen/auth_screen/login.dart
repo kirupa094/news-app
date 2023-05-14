@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:news_app/bloc/base_bloc.dart';
+import 'package:news_app/bloc/provider.dart';
 import 'package:news_app/custom_widget/custom_button.dart';
 import 'package:news_app/custom_widget/custom_text.dart';
 import 'package:news_app/custom_widget/custom_textfield.dart';
@@ -23,9 +25,11 @@ class _LoginScreenState extends State<LoginScreen> {
   String showError = '';
   final _auth = FirebaseAuth.instance;
   final GlobalKey<FormState> _form = GlobalKey<FormState>();
+  late BaseBloc _baseBloc;
 
   @override
   Widget build(BuildContext context) {
+    _baseBloc = Provider.of(context).baseBloc;
     return WillPopScope(
       onWillPop: () async {
         return false;
@@ -135,6 +139,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                 SharedPreferences prefs =
                                     await SharedPreferences.getInstance();
                                 prefs.setString("token", token);
+                                _baseBloc.setToken(token);
+                                
                               }
                             } catch (e) {
                               setState(() {
