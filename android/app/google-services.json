@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "904167113483",
+    "project_id": "flutterlogin-9c9a3",
+    "storage_bucket": "flutterlogin-9c9a3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:904167113483:android:c996d49fe8d31bb7ef980e",
+        "android_client_info": {
+          "package_name": "com.kiruba.newsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "904167113483-p8src8n2lb1h83rrv7a82jdoot9ufl6c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDny1OZvRS11EMUV1T8SPza0hDS10Mn8BU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "904167113483-p8src8n2lb1h83rrv7a82jdoot9ufl6c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
