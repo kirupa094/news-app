@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/bloc/provider.dart';
 import 'package:news_app/screen/home_screen/searchbar.dart';
 import 'package:news_app/screen/home_screen/top_head_lines/top_head_lines.dart';
 
@@ -7,6 +8,8 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final homeBloc = Provider.of(context).homeBloc;
+    homeBloc.fetchTopHeadLinesNews();
     return SafeArea(
       child: Scaffold(
         body: Container(
