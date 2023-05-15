@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/custom_widget/custom_text.dart';
+import 'package:news_app/screen/home_screen/top_head_lines/top_head_line_builder.dart';
 import 'package:news_app/screen/home_screen/top_head_lines/top_head_line_card_widget.dart';
 import 'package:news_app/util/constant.dart';
 
@@ -45,7 +46,10 @@ class TopHeadLinesNews extends StatelessWidget {
         const SizedBox(
           height: 10,
         ),
-        TopHeadLineCardWidget()
+        SizedBox(
+          height: MediaQuery.of(context).size.height * 0.3,
+          child: const TopHeadLineBuilder(),
+        )
       ],
     );
   }
