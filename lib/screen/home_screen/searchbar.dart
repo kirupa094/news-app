@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/bloc/provider.dart';
+import 'package:news_app/screen/search_screen/search_screen.dart';
 import 'package:news_app/util/constant.dart';
 
 class SearchBar extends StatefulWidget {
@@ -20,6 +22,7 @@ class _SearchBarState extends State<SearchBar> {
 
   @override
   Widget build(BuildContext context) {
+    final homeBloc = Provider.of(context).homeBloc;
     return Form(
       key: _form,
       child: Container(
@@ -51,7 +54,17 @@ class _SearchBarState extends State<SearchBar> {
             suffixIcon: IconButton(
               icon: const Icon(Icons.search),
               onPressed: () {
-                if (_form.currentState!.validate()) {}
+                if (_form.currentState!.validate()) {
+                  homeBloc.fetchSearchNews(
+                      _searchTextController.text, 'popularity');
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          SearchScreen(query: _searchTextController.text),
+                    ),
+                  );
+                }
               },
             ),
             enabledBorder: OutlineInputBorder(

@@ -11,4 +11,13 @@ class Repository {
   ) {
     _apiProvider.getTopNewsHeadLines(add, addError);
   }
+
+  void getSearchNews(
+    String query,
+    String sort,
+    Function(List<NewsModel>) add,
+    Function(Object) addError,
+  ) {
+    _apiProvider.getSearchNews(query, sort, add, addError);
+  }
 }

@@ -20,6 +20,9 @@ class NewsDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
+    const double containerHeight = 140;
+
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
@@ -58,7 +61,11 @@ class NewsDetailsScreen extends StatelessWidget {
                     Expanded(
                       child: Container(
                         padding: const EdgeInsets.only(
-                            left: 15, right: 15, bottom: 10, top: 50),
+                          left: 15,
+                          right: 15,
+                          bottom: 10,
+                          top: 50,
+                        ),
                         decoration: const BoxDecoration(
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(24),
@@ -79,13 +86,15 @@ class NewsDetailsScreen extends StatelessWidget {
                 ),
               ),
               Positioned(
-                top: 220,
-                left: 32,
-                right: 32,
-                height: 140,
+                top: screenSize.height * 0.31,
+                left: screenSize.width * 0.1,
+                right: screenSize.width * 0.1,
+                height: containerHeight,
                 child: Container(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 16,
+                    horizontal: 12,
+                  ),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
                     color: const Color.fromRGBO(245, 245, 245, 0.7),
@@ -101,9 +110,7 @@ class NewsDetailsScreen extends StatelessWidget {
                         fontFamily: 'nunito',
                         color: Colors.black,
                       ),
-                      const SizedBox(
-                        height: 8,
-                      ),
+                      const SizedBox(height: 8),
                       CustomText(
                         text: title,
                         fontWeight: FontWeight.w700,
@@ -111,9 +118,7 @@ class NewsDetailsScreen extends StatelessWidget {
                         fontFamily: 'new-york',
                         color: Colors.black,
                       ),
-                      const SizedBox(
-                        height: 8,
-                      ),
+                      const Spacer(),
                       CustomText(
                         text: 'Published by $author',
                         fontWeight: FontWeight.w700,
