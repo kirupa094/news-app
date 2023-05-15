@@ -23,7 +23,6 @@ class _SearchBarState extends State<SearchBar> {
     return Form(
       key: _form,
       child: Container(
-        margin: const EdgeInsets.only(left: 20, right: 20, top: 40),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(50),
@@ -36,7 +35,6 @@ class _SearchBarState extends State<SearchBar> {
             }
             return null;
           },
-          autofocus: true,
           cursorColor: Colors.black,
           cursorWidth: 1.5,
           cursorRadius: const Radius.circular(2.0),
@@ -45,17 +43,15 @@ class _SearchBarState extends State<SearchBar> {
             filled: true,
             fillColor: const Color.fromRGBO(241, 246, 246, 1),
             hintStyle: const TextStyle(
-                fontFamily: 'lato',
+                fontFamily: 'nunito',
                 color: labelTextColor,
-                fontWeight: FontWeight.w400,
-                fontSize: 16),
+                fontWeight: FontWeight.w600,
+                fontSize: 12),
             hintText: 'Enter word to search',
             suffixIcon: IconButton(
               icon: const Icon(Icons.search),
               onPressed: () {
-                if (_form.currentState!.validate()) {
-
-                }
+                if (_form.currentState!.validate()) {}
               },
             ),
             enabledBorder: OutlineInputBorder(
