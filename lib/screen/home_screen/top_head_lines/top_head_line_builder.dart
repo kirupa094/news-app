@@ -48,6 +48,8 @@ class TopHeadLineBuilder extends StatelessWidget {
           description: lst[index].description,
           title: lst[index].title,
           url: lst[index].urlToImage,
+          publishAt: lst[index].publishedAt,
+          content: lst[index].content,
         );
       },
     );
