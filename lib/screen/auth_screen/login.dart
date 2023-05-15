@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:news_app/bloc/base_bloc.dart';
 import 'package:news_app/bloc/provider.dart';
+import 'package:news_app/custom_widget/bottom_nav_screen.dart';
 import 'package:news_app/custom_widget/custom_button.dart';
 import 'package:news_app/custom_widget/custom_text.dart';
 import 'package:news_app/custom_widget/custom_textfield.dart';
@@ -140,7 +141,16 @@ class _LoginScreenState extends State<LoginScreen> {
                                     await SharedPreferences.getInstance();
                                 prefs.setString("token", token);
                                 _baseBloc.setToken(token);
-                                
+                                WidgetsBinding.instance
+                                    .addPostFrameCallback((_) {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          const BottomNavScreen(),
+                                    ),
+                                  );
+                                });
                               }
                             } catch (e) {
                               setState(() {

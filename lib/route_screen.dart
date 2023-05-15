@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/bloc/base_bloc.dart';
 import 'package:news_app/bloc/provider.dart';
+import 'package:news_app/custom_widget/bottom_nav_screen.dart';
 import 'package:news_app/screen/auth_screen/login.dart';
 import 'package:news_app/screen/home_screen/home_screen.dart';
 
@@ -15,7 +16,7 @@ class RouterScreen extends StatelessWidget {
       builder: (context, AsyncSnapshot<InitData> snapshot) {
         if (snapshot.hasData) {
           if (snapshot.data!.token != '') {
-            return const HomeScreen();
+            return const BottomNavScreen();
           } else {
             return const LoginScreen();
           }

@@ -9,3 +9,4 @@ const tertiary = Color.fromRGBO(255, 230, 0, 1);
 const loginWidgetColor = Color.fromARGB(255, 241, 246, 246);
 const visibilityIconColor = Color.fromARGB(255, 118, 118, 118);
 const buttonTextColor = Color.fromARGB(255, 255, 255, 255);
+const unselectedColor = Color.fromARGB(255, 166, 166, 166);
