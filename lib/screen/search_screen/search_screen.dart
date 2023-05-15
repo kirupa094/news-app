@@ -27,65 +27,85 @@ class SearchScreen extends StatelessWidget {
           elevation: 0,
           backgroundColor: Colors.white,
           automaticallyImplyLeading: false,
-          title: Form(
-            key: _form,
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(50),
-              ),
-              child: TextFormField(
-                controller: _searchTextController,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Field is not empty';
-                  }
-                  return null;
+          titleSpacing: 0,
+          title: Row(
+            children: [
+              IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
                 },
-                cursorColor: Colors.black,
-                cursorWidth: 1.5,
-                cursorRadius: const Radius.circular(2.0),
-                decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.all(15.0),
-                  filled: true,
-                  fillColor: const Color.fromRGBO(241, 246, 246, 1),
-                  hintStyle: const TextStyle(
-                    fontFamily: 'nunito',
-                    color: Colors.black,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 12,
-                  ),
-                  hintText: 'Enter word to search',
-                  suffixIcon: IconButton(
-                    icon: const Icon(Icons.search),
-                    onPressed: () {
-                      if (_form.currentState!.validate()) {
-                        homeBloc.fetchSearchNews(
-                            _searchTextController.text, 'popularity');
-                      }
-                    },
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                        color: Color.fromARGB(255, 238, 238, 238), width: 2),
-                    borderRadius: BorderRadius.circular(50),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                        color: Color.fromARGB(255, 238, 238, 238), width: 2),
-                    borderRadius: BorderRadius.circular(50),
-                  ),
-                  errorBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(color: Colors.red, width: 2),
-                    borderRadius: BorderRadius.circular(50),
-                  ),
-                  focusedErrorBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(color: Colors.red, width: 2),
-                    borderRadius: BorderRadius.circular(50),
+                icon: const Icon(
+                  Icons.arrow_back,
+                  color: Colors.black,
+                ),
+              ),
+              Flexible(
+                child: Form(
+                  key: _form,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    child: TextFormField(
+                      controller: _searchTextController,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Field is not empty';
+                        }
+                        return null;
+                      },
+                      cursorColor: Colors.black,
+                      cursorWidth: 1.5,
+                      cursorRadius: const Radius.circular(2.0),
+                      decoration: InputDecoration(
+                        contentPadding: const EdgeInsets.all(15.0),
+                        filled: true,
+                        fillColor: const Color.fromRGBO(241, 246, 246, 1),
+                        hintStyle: const TextStyle(
+                          fontFamily: 'nunito',
+                          color: Colors.black,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 12,
+                        ),
+                        hintText: 'Enter word to search',
+                        suffixIcon: IconButton(
+                          icon: const Icon(Icons.search),
+                          onPressed: () {
+                            if (_form.currentState!.validate()) {
+                              homeBloc.fetchSearchNews(
+                                  _searchTextController.text, 'popularity');
+                            }
+                          },
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                              color: Color.fromARGB(255, 238, 238, 238),
+                              width: 2),
+                          borderRadius: BorderRadius.circular(50),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                              color: Color.fromARGB(255, 238, 238, 238),
+                              width: 2),
+                          borderRadius: BorderRadius.circular(50),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderSide:
+                              const BorderSide(color: Colors.red, width: 2),
+                          borderRadius: BorderRadius.circular(50),
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderSide:
+                              const BorderSide(color: Colors.red, width: 2),
+                          borderRadius: BorderRadius.circular(50),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),
-            ),
+            ],
           ),
         ),
         body: Container(

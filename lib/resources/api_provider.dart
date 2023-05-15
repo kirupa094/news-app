@@ -50,14 +50,13 @@ class ApiProvider {
   getSearchNews(String query, String sort, Function(List<NewsModel>) add,
       Function(Object) addError) async {
     add([]);
-    print(query);
     try {
       Map<String, String> headers = {
         'Accept': 'application/json',
       };
 
       final response = await _client.get(
-        Uri.parse('$_root/everything?q=$sort&sortBy=$sort&apiKey=$apiKey'),
+        Uri.parse('$_root/everything?q=$query&sortBy=$sort&apiKey=$apiKey'),
         headers: headers,
       );
 
